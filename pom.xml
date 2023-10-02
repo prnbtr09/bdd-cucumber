@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>desktopAutomation.StandAloneDriver</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.13.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.13.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.3</version>
+        </dependency>
+        <dependency>
+            <groupId>tech.grasshopper</groupId>
+            <artifactId>extentreports-cucumber7-adapter</artifactId>
+            <version>1.14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>7.14.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>3.1.2</version>
+                    <configuration>
+                        <!--                        <includes>**/runner/*Runner.java</includes>-->
+                        <!--                        <parallel>methods</parallel>-->
+                        <!--                        <threadCount>2</threadCount>-->
+                        <suiteXmlFiles>
+                            <suiteXmlFile>testng.xml</suiteXmlFile>
+                        </suiteXmlFiles>
+                        <!--                        <properties>-->
+                        <!--                            <property>-->
+                        <!--                                <name>listener</name>-->
+                        <!--                                <value>failedTestCases.AnnotationTransformer</value>-->
+                        <!--                            </property>-->
+                        <!--                        </properties>-->
+
+                        <!--                        <properties>&ndash;&gt;-->
+                        <!--                            <property>-->
+                        <!--                                <name>dataproviderthreadcount</name>-->
+                        <!--                                <value>2</value>-->
+                        <!--                            </property>-->
+                        <!--                        </properties>-->
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!--    <build>-->
+    <!--        <pluginManagement>-->
+    <!--            <plugins>-->
+    <!--                <plugin>-->
+    <!--                    <groupId>org.apache.maven.plugins</groupId>-->
+    <!--                    <artifactId>maven-surefire-plugin</artifactId>-->
+    <!--                    <version>3.1.2</version>-->
+    <!--                    <configuration>-->
+    <!--                        &lt;!&ndash;                        <includes>**/runner/*Runner.java</includes>&ndash;&gt;-->
+    <!--                        &lt;!&ndash;                        <parallel>methods</parallel>&ndash;&gt;-->
+    <!--                        &lt;!&ndash;                        <threadCount>2</threadCount>&ndash;&gt;-->
+    <!--                        <parallel>tests</parallel>-->
+    <!--                        <suiteXmlFiles>-->
+    <!--                            <suiteXmlFile>testng.xml</suiteXmlFile>-->
+    <!--                        </suiteXmlFiles>-->
+    <!--                        <properties>-->
+    <!--                            <property>-->
+    <!--                                <name>dataproviderthreadcount</name>-->
+    <!--                                <value>2</value>-->
+    <!--                            </property>-->
+    <!--                        </properties>-->
+    <!--                    </configuration>-->
+    <!--                </plugin>-->
+    <!--            </plugins>-->
+    <!--        </pluginManagement>-->
+    <!--    </build>-->
+
+
+</project>
