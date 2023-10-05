@@ -26,7 +26,7 @@ public class LoginStepDef {
     public LoginStepDef() {
         driver = CreateDriver.getInstance().getDriver();
         driver.manage().window().maximize();
-        System.out.println("minot change");
+        System.out.println("minor change");
     }
 
     @Given("user has launched url {string}")
