@@ -33,7 +33,7 @@ public class LoginStepDef {
     public void launchURL(String url) {
         driver.get(url);
         Assert.assertTrue(false);
-        System.out.println("sample change");
+        System.out.println("sample change login feature");
     }
 
     @Given("user has entered credentials")
