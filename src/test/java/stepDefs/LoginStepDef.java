@@ -34,7 +34,9 @@ public class LoginStepDef {
         driver.get(url);
         Assert.assertTrue(false);
 
-        System.out.println("sample change login feature user1");
+
+        System.out.println("sample change login feature user1 changes");
+
     }
 
     @Given("user has entered credentials")
