@@ -35,7 +35,7 @@ public class LoginStepDef {
         Assert.assertTrue(false);
 
 
-        System.out.println("sample change login feature user2 changes");
+        System.out.println("sample change login feature user1 changes");
 
     }
 
