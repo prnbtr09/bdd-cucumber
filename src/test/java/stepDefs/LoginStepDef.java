@@ -63,7 +63,7 @@ public class LoginStepDef {
     public void userVerifyDashboard(String text) {
         dashboard = new Dashboard(driver);
         Assert.assertTrue(dashboard.productsLabel.isDisplayed());
-        System.out.println("sample change in login");
+        System.out.println("resolved issues of user2");
     }
 
     @And("user closes the browser")
