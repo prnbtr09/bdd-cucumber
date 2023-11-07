@@ -64,7 +64,7 @@ public class LoginStepDef {
         dashboard = new Dashboard(driver);
         Assert.assertTrue(dashboard.productsLabel.isDisplayed());
         System.out.println("sample change in login");
-        System.out.println("fix the issue");
+        System.out.println("fix the issue for user1");
     }
 
     @And("user closes the browser")
