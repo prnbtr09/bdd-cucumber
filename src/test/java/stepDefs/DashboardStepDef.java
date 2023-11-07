@@ -6,5 +6,6 @@ public class DashboardStepDef {
     private WebDriver driver;
 
     public DashboardStepDef() {
+        System.out.println("user 2 changes");
     }
 }
