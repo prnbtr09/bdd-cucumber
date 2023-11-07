@@ -6,6 +6,6 @@ public class DashboardStepDef {
     private WebDriver driver;
 
     public DashboardStepDef() {
-
+    System.out.println("I am in Dashboard");
     }
 }
