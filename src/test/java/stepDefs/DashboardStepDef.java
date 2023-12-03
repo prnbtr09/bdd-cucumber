@@ -7,6 +7,5 @@ public class DashboardStepDef {
 
     public DashboardStepDef() {
         System.out.println("user 2 changes");
-        System.out.println("user 2 changes part2");
     }
 }
