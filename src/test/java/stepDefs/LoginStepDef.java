@@ -33,10 +33,12 @@ public class LoginStepDef {
     public void launchURL(String url) {
         driver.get(url);
         Assert.assertTrue(false);
+//
+    }
 
-
-        System.out.println("sample change login feature user1 changes");
-
+    @When("user has entered {string}")
+    public void enterText(String text) {
+        driver.findElement(By.xpath("//textarea[@title='Search']")).sendKeys(text);
     }
 
     @Given("user has entered credentials")
