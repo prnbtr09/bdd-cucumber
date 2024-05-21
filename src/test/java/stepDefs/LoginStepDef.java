@@ -32,6 +32,12 @@ public class LoginStepDef {
     public void launchURL(String url) {
         driver.get(url);
         Assert.assertTrue(false);
+//
+    }
+
+    @When("user has entered {string}")
+    public void enterText(String text) {
+        driver.findElement(By.xpath("//textarea[@title='Search']")).sendKeys(text);
     }
 
     @Given("user has entered credentials")
