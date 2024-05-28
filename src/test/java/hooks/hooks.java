@@ -16,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.testng.Assert;
 
 
 public class hooks {
@@ -29,6 +30,7 @@ public class hooks {
         CreateDriver.getInstance().setDriver(browser);
         driver = CreateDriver.getInstance().getDriver();
         ExtentService.getInstance().setSystemInfo("os", "windows");
+        Assert.assertTrue(false);
     }
 
 
@@ -48,7 +50,6 @@ public class hooks {
 //                scenario.attach(output, "text/html", scenario.toString());
         CreateDriver.getInstance().getDriver().quit();
         scenario.getStatus();
-
     }
 
     @After(value = "@firefox")
