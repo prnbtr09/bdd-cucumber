@@ -47,6 +47,13 @@
             <artifactId>cucumber-testng</artifactId>
             <version>7.14.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-picocontainer -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-picocontainer</artifactId>
+            <version>7.14.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>

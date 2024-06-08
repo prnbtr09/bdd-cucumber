@@ -3,7 +3,9 @@ Feature: As a user of application I want to validate launching google
   @chrome @testNG
   Scenario: Scenario1
     Given user has launched url "https://www.google.com/"
-    And user has entered "PrinceAutomationDestination"
+    When user has entered "PrinceAutomationDestination"
+    Then user verify google Search List
+
 
 
 

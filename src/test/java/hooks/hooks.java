@@ -1,22 +1,11 @@
 package hooks;
 
-import com.aventstack.extentreports.ExtentReports;
-import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.aventstack.extentreports.reporter.configuration.ExtentSparkReporterConfig;
 import com.aventstack.extentreports.service.ExtentService;
 import driver.driverManager.CreateDriver;
 import io.cucumber.java.*;
-import io.cucumber.java.sk.Tak;
-import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.remote.RemoteWebDriver;
-import org.testng.Assert;
 
 
 public class hooks {
@@ -30,7 +19,6 @@ public class hooks {
         CreateDriver.getInstance().setDriver(browser);
         driver = CreateDriver.getInstance().getDriver();
         ExtentService.getInstance().setSystemInfo("os", "windows");
-        Assert.assertTrue(false);
     }
 
 
@@ -69,8 +57,8 @@ public class hooks {
 
 
     @AfterStep()
-    public void actionPostEachStep(Scenario scenario) {
-        if (scenario.isFailed()) {
+    public synchronized void actionPostEachStep(Scenario scenario) {
+        if (!scenario.isFailed()) {
             TakesScreenshot takesScreenshot = (TakesScreenshot) driver;
             byte[] screenshot = takesScreenshot.getScreenshotAs(OutputType.BYTES);
             scenario.attach(screenshot, "image/png", screenshot.toString());

@@ -7,11 +7,11 @@ import org.testng.annotations.*;
 
 @CucumberOptions(features = "src/test/resources",
         glue = {"stepDefs", "hooks"},
-        tags = "@testNG",
+        tags = "@dependencyInjection",
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "rerun:target/failed.txt"})
 public class UITestRunnnerTestNG extends AbstractTestNGCucumberTests {
 
-    @DataProvider(parallel = false)
+    @DataProvider(parallel = true)
     @Override
     public Object[][] scenarios() {
         return super.scenarios();

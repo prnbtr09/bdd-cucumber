@@ -22,7 +22,7 @@
         <!-- view report without internet -->
         <offlineMode>true</offlineMode>
 
-        <thumbnailForBase64>true</thumbnailForBase64>
+        <thumbnailForBase64>false</thumbnailForBase64>
 
         <!-- custom javascript -->
         <js>
