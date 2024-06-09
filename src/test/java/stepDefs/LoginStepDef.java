@@ -8,9 +8,10 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import pages.Dashboard;
 import pages.LoginPage;
 
@@ -39,12 +40,49 @@ public class LoginStepDef {
 
 
     @Given("user has entered credentials")
-    public void enterCredentials(DataTable table) {
-        List<Map<String, String>> credentials = table.asMaps(String.class, String.class);
-        driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(credentials.get(0).get("UserName"));
-        driver.findElement(By.xpath("//input[@id='password']")).sendKeys(credentials.get(0).get("Password"));
+    public void enterCredentials(DataTable dataTable) {
+        loginPage = new LoginPage(driver);
+        Map<String, String> map = dataTable.asMap();
+        loginPage.userName.sendKeys(map.get("UserName"));
+        loginPage.password.sendKeys(map.get("password"));
     }
 
+    @Then("user verifies following Products")
+    public void verifyData(List<String> products) {
+
+        for (String product : products) {
+            Assert.assertTrue(driver.findElement(By.xpath("//div[@class='inventory_item']//div[@class='inventory_item_label']/a/div[text()='" + product + "']/ancestor::div/following-sibling::div[@class='pricebar']/button")).isDisplayed());
+        }
+
+    }
+
+    @Then("user verifies following Products and respective prices")
+    public void verifyProductPrice(Map<String, String> productPriceMap) {
+
+        for (Map.Entry<String, String> entry : productPriceMap.entrySet()) {
+            WebElement productName = driver.findElement(By.xpath("//div[@class='inventory_item']//div[@class='inventory_item_label']/a/div[text()='" + entry.getKey() + "']/ancestor::div/following-sibling::div[@class='pricebar']/button"));
+            Assert.assertTrue(productName.findElement(By.xpath("preceding-sibling::div")).getText().equals(entry.getValue()));
+        }
+    }
+
+    @Then("user verifies following Products and respective prices with Label")
+    public void verifyProductPriceUsingLabel(List<Map<String, String>> listOfMap) {
+        for (Map<String, String> row : listOfMap) {
+            WebElement productName = driver.findElement(By.xpath("//div[@class='inventory_item']//div[@class='inventory_item_label']/a/div[text()='" + row.get("productName") + "']/ancestor::div/following-sibling::div[@class='pricebar']/button"));
+            Assert.assertTrue(productName.findElement(By.xpath("preceding-sibling::div")).getText().equals(row.get("productPrice")));
+        }
+    }
+
+    @Then("user verifies following Products and respective prices with Label as List")
+    public void verifyProductPriceUsingLabelList(List<List<String>> listOfList) {
+        for (int i = 0; i < listOfList.size(); i++) {
+
+
+            WebElement productName = driver.findElement(By.xpath("//div[@class='inventory_item']//div[@class='inventory_item_label']/a/div[text()='" + listOfList.get(i).get(0) + "']/ancestor::div/following-sibling::div[@class='pricebar']/button"));
+            Assert.assertTrue(productName.findElement(By.xpath("preceding-sibling::div")).getText().equals(listOfList.get(i).get(1)));
+        }
+
+    }
 
     @Given("user has entered username {string} and password {string}")
     public void enteredCredentials1(String userName, String password) {
