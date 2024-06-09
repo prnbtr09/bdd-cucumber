@@ -7,7 +7,7 @@ import org.testng.annotations.*;
 
 @CucumberOptions(features = "src/test/resources",
         glue = {"stepDefs", "hooks"},
-        tags = "@dependencyInjection",
+        tags = "@dataTableAsList",
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "rerun:target/failed.txt"})
 public class UITestRunnnerTestNG extends AbstractTestNGCucumberTests {
 
