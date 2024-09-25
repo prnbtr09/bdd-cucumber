@@ -1,13 +1,13 @@
 package runner;
 
-import failedTestCases.Retry;
-import io.cucumber.testng.*;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import io.cucumber.testng.CucumberOptions;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
 
 @CucumberOptions(features = "src/test/resources",
         glue = {"stepDefs", "hooks"},
-        tags = "@dataTableAsList",
+        tags = "@RetryTest",
         plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "rerun:target/failed.txt"})
 public class UITestRunnnerTestNG extends AbstractTestNGCucumberTests {
 
@@ -43,7 +43,7 @@ public class UITestRunnnerTestNG extends AbstractTestNGCucumberTests {
     @BeforeClass
     public void beforeClass(ITestContext context) {
         System.out.println("before class");
-        context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
+//        context.getCurrentXmlTest().getSuite().setDataProviderThreadCount(2);
     }
 
 
