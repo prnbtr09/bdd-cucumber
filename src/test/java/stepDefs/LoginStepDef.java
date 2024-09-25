@@ -35,6 +35,7 @@ public class LoginStepDef {
 
     @Given("user has launched url {string}")
     public void launchURL(String url) {
+        Assert.assertTrue(false);
         driver.get(url);
     }
 

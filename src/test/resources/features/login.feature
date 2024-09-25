@@ -21,9 +21,9 @@ Feature: As a user of application I want to validate login functionality
 #    Then user verify "dashboard" on Dashboard
 
 
-#  Scenario: Validate login functionality with valid credentials
-#    Given user has launched url "https://www.saucedemo.com/"
-#    And user has entered username "standard_user" and password "secret_sauce"
+  Scenario: Validate login functionality with valid credentials
+    Given user has launched url "https://www.saucedemo.com/"
+    And user has entered username "standard_user" and password "secret_sauce"
 #    And User click on Login
 #    Then user verify "Products" on Dashboard
 #
@@ -50,12 +50,17 @@ Feature: As a user of application I want to validate login functionality
 
 
 
-  @sample @chrome @designPattern
-  Scenario: Validate login functionality with valid credentials
+  @sample @chrome @sampleEmpty
+  Scenario Outline: Validate login functionality with valid credentials
 #    Given user has launched url "https://www.saucedemo.com/"
-    And user has entered username "standard_user" and password "secret_sauce"
+    And user has entered username "<userName>" and password "<Password>"
     And User click on Login
     Then user verify "Products" on Dashboard
+
+    Examples:
+      | userName       | Password     |
+      | standard_user  | secret_sauce |
+      | standard_user1 |              |
 
 
 

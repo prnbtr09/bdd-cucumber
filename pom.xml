@@ -55,7 +55,6 @@
         </dependency>
 
     </dependencies>
-
     <build>
         <pluginManagement>
             <plugins>
@@ -64,30 +63,15 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.1.2</version>
                     <configuration>
-                        <!--                        <includes>**/runner/*Runner.java</includes>-->
-                        <!--                        <parallel>methods</parallel>-->
-                        <!--                        <threadCount>2</threadCount>-->
                         <suiteXmlFiles>
                             <suiteXmlFile>testng.xml</suiteXmlFile>
                         </suiteXmlFiles>
-                        <!--                        <properties>-->
-                        <!--                            <property>-->
-                        <!--                                <name>listener</name>-->
-                        <!--                                <value>failedTestCases.AnnotationTransformer</value>-->
-                        <!--                            </property>-->
-                        <!--                        </properties>-->
-
-                        <!--                        <properties>&ndash;&gt;-->
-                        <!--                            <property>-->
-                        <!--                                <name>dataproviderthreadcount</name>-->
-                        <!--                                <value>2</value>-->
-                        <!--                            </property>-->
-                        <!--                        </properties>-->
                     </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
+
 
     <!--    <build>-->
     <!--        <pluginManagement>-->
