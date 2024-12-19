@@ -9,6 +9,8 @@ public class ChromeManager implements BrowserManager {
     @Override
     public WebDriver getDriver() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+         ChromeOptions chromeOptions=new ChromeOptions();
+                chromeOptions.addArguments("--headless");
+        return new ChromeDriver(chromeOptions);
     }
 }
