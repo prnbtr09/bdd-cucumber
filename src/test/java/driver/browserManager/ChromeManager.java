@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class ChromeManager implements BrowserManager {
     @Override
     public WebDriver getDriver() {
+        ChromeOptions chromeOptions=new ChromeOptions();
         WebDriverManager.chromedriver().setup();
          String headless=System.getProperty("headless","true");
         if(headless.equals("true")){
